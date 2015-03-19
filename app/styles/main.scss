@@ -39,9 +39,9 @@ IMPORTS & DEPENDENCIES
 }
 
 body {
-	background: #fafafa;
+	background: $background-main;
 	font-family: $font-gen;
-	color: #333;
+	color: $brick-text;
 	font-size: 14px;
 }
 
@@ -58,7 +58,7 @@ header {
 	padding-bottom: 20px;
 	text-align: center;
 
-	input {
+	input[type="text"] {
 		@include transition;
 		@include border-radius(5px);
 
@@ -75,6 +75,10 @@ header {
 			border: 1px solid rgba(81, 203, 238, 1);
 		}
 	}
+
+	input[type="submit"] {
+		display: none;
+	}
 }
 
 #results {
@@ -90,6 +94,10 @@ header {
 		&:hover {
 			cursor: pointer;
 			@include box-shadow(.7);
+		}
+
+		> * {
+			box-sizing: border-box;
 		}
 	}
 
@@ -111,8 +119,6 @@ header {
 		left: 0;
 		width: 100%;
 		opacity: 0;
-
-		height: 300px;
 	}
 
 	.result-title {
@@ -125,7 +131,7 @@ header {
 		border-bottom-right-radius: 15px;
 		border-bottom-left-radius: 15px;
 
-		color: white;
+		color: $background-brick-title;
 		font-size: 1.3em;
 	}
 }
