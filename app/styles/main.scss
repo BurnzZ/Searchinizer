@@ -6,14 +6,127 @@ IMPORTS & DEPENDENCIES
 @import "normalize-scss/_normalize.scss";
 // endbower
 
+//VARIABLES
 @import "partials/vars";
 
+//RESPONSIVE GRID
+@import "partials/grid";
 
+//MIXINS
+@import "modules/mixins";
 
+//BASE (MOBILE) SIZE
+@import "breakpoints/base";
 
-body {
-  background: #fafafa;
-  font-family: $font-gen;
-  color: #333;
+//LARGER MOBILE DEVICES
+@media only screen and (min-width: 481px) {
+	@import "breakpoints/481up";
 }
 
+//TABLET & SMALLER LAPTOPS
+@media only screen and (min-width: 768px) {
+	@import "breakpoints/768up";
+}
+
+//DESKTOP
+@media only screen and (min-width: 1030px) {
+	@import "breakpoints/1030up";
+}
+
+//Start of WIDE
+@media only screen and (min-width: 1420px) {
+	@import "breakpoints/1420up";
+}
+
+body {
+	background: #fafafa;
+	font-family: $font-gen;
+	color: #333;
+	font-size: 14px;
+}
+
+header {
+	font-size: 4em; 
+	text-align: center;
+	width: 100%;
+	margin: 30px 0;
+}
+
+#search {
+	width: 50%;
+	margin: 0 auto;
+	padding-bottom: 20px;
+	text-align: center;
+
+	input {
+		@include transition;
+		@include border-radius(5px);
+
+		font-size: 2em;
+
+		width: 100%;
+		outline: none;
+		padding: 10px 0px 10px 10px;
+		margin: 5px 1px 3px 0px;
+		border: 1px solid #DDDDDD;
+
+		&:focus {
+			box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+			border: 1px solid rgba(81, 203, 238, 1);
+		}
+	}
+}
+
+#results {
+	min-height: 200px;
+	margin: 0 auto;
+	width: 90%;
+
+	.brick {
+		width: 350px;
+		position: relative;
+		border-radius: 15px;
+
+		&:hover {
+			cursor: pointer;
+			@include box-shadow(.7);
+		}
+	}
+
+	div.loading-gif {
+
+		img {
+			display: block;
+			width: 10%;
+			position: absolute;
+		}
+	}
+
+	.tiled-wrapper img {
+
+		border-top-left-radius: 15px;
+		border-top-right-radius: 15px;
+		display: block;
+		top: 0;
+		left: 0;
+		width: 100%;
+		opacity: 0;
+
+		height: 300px;
+	}
+
+	.result-title {
+		position: relative;
+		border: 0;
+		width: 100%;
+		padding: 10px;
+		text-align: center;
+		background-color: rgba(0,0,0,1);
+
+		border-bottom-right-radius: 15px;
+		border-bottom-left-radius: 15px;
+
+		color: white;
+		font-size: 1.3em;
+	}
+}
