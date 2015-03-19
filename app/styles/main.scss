@@ -39,17 +39,24 @@ IMPORTS & DEPENDENCIES
 }
 
 body {
-	background: $background-main;
+	background: $background-body;
 	font-family: $font-gen;
 	color: $text-body;
 	font-size: 14px;
 }
 
-header {
+h1 {
 	font-size: 4em; 
+	margin: 0;
+	color: $text-header;
+}
+
+#main {
 	text-align: center;
 	width: 100%;
-	margin: 30px 0;
+	background-color: $background-brick-title;
+	height: 100vh;
+	margin-bottom: 30px;
 }
 
 #search {
@@ -83,25 +90,18 @@ header {
 
 #pagination {
 
-	text-align: center;
-
-	> h2 {
-		clear: both;
-		text-align: center;
-		font-size: 1.5em;
-		display: none;
-	}
+	text-align: center;	
+	color: $text-header;
 
 	> div {
-		display: inline-block;
 		padding: 5px;
 		display: none;
 	}
 
 	a {
 		text-decoration: none;
-		color: $text-body;
 		font-size: 1.5em;
+		color: $text-header;
 	}
 }
 

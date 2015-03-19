@@ -7,7 +7,7 @@ var url_base = "http://api.flickr.com/services/rest/?method=flickr.photos.search
 var url_params = "&format=json&nojsoncallback=1&per_page=10";
 
 
-var pages_count;
+var pages_total;
 var pages_current;
 var query;
 
@@ -94,20 +94,25 @@ function buildWall() {
 function buildPagination(current, total) {
 
 	if (current === 1)
-		$('#back').hide();
+		$('#back').css({'display':'none'});
 	else
-		$('#back').show();
+		$('#back').css({'display':'inline-block'});
 
 	if (current === total)
-		$('#forward').hide();
+		$('#forward').css({'display':'none'});
 	else
-		$('#forward').show();
+		$('#forward').css({'display':'inline-block'});
 }
 
-function getData(url) {
-	$.getJSON(url, function(result) {
+function getData(url, curr) {
+	$.getJSON(url + '&page=' + curr, function(result) {
 		var images = result.photos;
 		var page = new Array();
+
+		console.log(curr);
+
+		if (curr === 1)
+			pages_total = result.photos.pages;
 
 		images.photo.forEach(function(unit) {
 			var obj = {}
@@ -117,6 +122,8 @@ function getData(url) {
 			page[page.length] = obj;
 		});
 
+
+		$('#page-tracker').html("Page " + pages_current + ' of ' + pages_total);
 		buildPagination(pages_current, result.pages);
 		loadWall(page);
 	});
@@ -128,9 +135,9 @@ $('document').ready(function() {
 		event.preventDefault();
 
 		if (this.id === 'forward')
-			getData(url_base + url_params + query + '&page=' + ++pages_current);
+			getData(url_base + url_params + query, ++pages_current);
 		else if (this.id === 'back')
-			getData(url_base + url_params + query + '&page=' + --pages_current);
+			getData(url_base + url_params + query, --pages_current);
 	});
 
 	$('#btn-submit').on('click', function(event) {
@@ -138,10 +145,12 @@ $('document').ready(function() {
 
 		query = "&text=" + $("#query").val();
 
-		pages_count = 0;
+		pages_total = 0;
 		pages_current = 1;
 
-		getData(url_base + url_params + query + '&page=1');
+		getData(url_base + url_params + query, pages_current);
+
+		$('#page-tracker').css({'display' : 'inline-block'});
 	});
 });
 

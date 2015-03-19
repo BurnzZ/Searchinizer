@@ -24,22 +24,23 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <header class="">
-        Searchinizer
-    </header>
+    <div id="main">
+        <div id="search">
+            <h1>Searchinizer</h1>
+            <form>
+                <input type="text" name="search" value="" id="query">
+                <input type="submit" name="submit" id="btn-submit">
+            </form>
+        </div>
+        
+        <div id='pagination'>
+            <div id="back"><a href="#">Back</a></div>
+            <div id="page-tracker"></div>
+            <div id="forward"><a href="#">Forward</a></div>
+        </div>
+    </div>
 
-    <div id="search">
-        <form>
-            <input type="text" name="search" value="" id="query">
-            <input type="submit" name="submit" id="btn-submit">
-        </form>
-    </div>
-    
-    <div id='pagination'>
-        <h2>Page: 1 of 2</h2>
-        <div id="back"><a href="#">Back</a></div>
-        <div id="forward"><a href="#">Forward</a></div>
-    </div>
+   
 
     <div id="results"></div>
 
