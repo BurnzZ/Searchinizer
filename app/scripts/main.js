@@ -47,6 +47,9 @@ function generateWall(wall) {
 
 $('document').ready(function() {
 
+	var api_key = 'd9edd8af4c7623dd292b6d5963dcd6d2';
+	var api_secret = 'ec0eeb164369fb60';
+
 	// init the wall
 	wall = new freewall("#results");
 	generateWall(wall);
