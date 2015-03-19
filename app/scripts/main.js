@@ -7,6 +7,9 @@ var url_base = "http://api.flickr.com/services/rest/?method=flickr.photos.search
 var url_params = "&format=json&nojsoncallback=1&per_page=10";
 
 
+var pages_count;
+var pages_current;
+var query;
 
 /* Called after featured-image has been loaded */
 function afterWallBrickImageLoad() {
@@ -54,7 +57,9 @@ function generateWall(wall) {
 }
 
 function loadWall(page) {
-	console.log(page);
+
+	$('#results').html("");
+
 	page.forEach(function(unit) {
 
 		$('#results').append(
@@ -86,37 +91,58 @@ function buildWall() {
 	wall.refresh();
 }
 
+function buildPagination(current, total) {
+
+	if (current === 1)
+		$('#back').hide();
+	else
+		$('#back').show();
+
+	if (current === total)
+		$('#forward').hide();
+	else
+		$('#forward').show();
+}
+
+function getData(url) {
+	$.getJSON(url, function(result) {
+		var images = result.photos;
+		var page = new Array();
+
+		images.photo.forEach(function(unit) {
+			var obj = {}
+			obj.url = "https://farm" + unit.farm + ".staticflickr.com/" + unit.server + "/" + unit.id + "_" + unit.secret + "_z.jpg";	
+			obj.title = unit.title;
+
+			page[page.length] = obj;
+		});
+
+		buildPagination(pages_current, result.pages);
+		loadWall(page);
+	});
+}
+
 $('document').ready(function() {
 
-	$('#btn-submit').click(function(event) {
+	$('#pagination > div').on('click', function(event) {
 		event.preventDefault();
 
-		// clears prev results
-		$('#results').html("");
-
-		// builds the query to the API: flickr.photos.search
-		var query = "&text=" + $("#query").val();
-		var URL = url_base + url_params + query;
-
-		$.getJSON(URL, function(result) {
-			var images = result.photos;
-			console.log(images);
-
-			var page = new Array();
-
-			images.photo.forEach(function(unit) {
-				var obj = {}
-				obj.url = "https://farm" + unit.farm + ".staticflickr.com/" + unit.server + "/" + unit.id + "_" + unit.secret + ".jpg";	
-				obj.title = unit.title
-
-				page[page.length] = obj
-			});
-
-			loadWall(page);
-		});
+		if (this.id === 'forward')
+			getData(url_base + url_params + query + '&page=' + ++pages_current);
+		else if (this.id === 'back')
+			getData(url_base + url_params + query + '&page=' + --pages_current);
 	});
 
-	buildWall();
+	$('#btn-submit').on('click', function(event) {
+		event.preventDefault();
+
+		query = "&text=" + $("#query").val();
+
+		pages_count = 0;
+		pages_current = 1;
+
+		getData(url_base + url_params + query + '&page=1');
+	});
 });
 
 
