@@ -1,18 +1,19 @@
-// bower:scss
-// endbower
-
 /******************************************************************
 IMPORTS & DEPENDENCIES
 ******************************************************************/
 
+// bower:scss
+@import "normalize-scss/_normalize.scss";
+// endbower
 
+@import "partials/vars";
 
 
 
 
 body {
   background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $font-gen;
   color: #333;
 }
 
