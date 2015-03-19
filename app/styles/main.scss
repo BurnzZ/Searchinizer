@@ -39,29 +39,60 @@ IMPORTS & DEPENDENCIES
 }
 
 body {
-	background: $background-main;
+	background: $background-body;
 	font-family: $font-gen;
-	color: $brick-text;
+	color: $text-header;
 	font-size: 14px;
 }
 
-header {
-	font-size: 4em; 
+h1 {
+	font-size: 4em;
+	color: $text-header;
+	margin: 0;
+}
+
+#main {
+	@include background-size;
+	
 	text-align: center;
 	width: 100%;
-	margin: 30px 0;
+	height: 100vh;
+	background-color: $background-main;
+}
+
+#photo-of-the-day {
+	@include border-radius(5px);
+	@include transition;
+
+	padding: 7px;
+	margin: 0 auto;
+
+	background-color: rgba(0,0,0,0.5);
+	opacity: 0.6;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	a {
+		font-weight: bold;
+		color: $text-brick;
+		text-decoration: none;
+	}
 }
 
 #search {
 	width: 50%;
+
 	margin: 0 auto;
-	padding-bottom: 20px;
+	padding-bottom: 50px;
 	text-align: center;
 
 	input[type="text"] {
 		@include transition;
 		@include border-radius(5px);
 
+		color: $text-input;
 		font-size: 2em;
 
 		width: 100%;
@@ -85,6 +116,7 @@ header {
 	min-height: 200px;
 	margin: 0 auto;
 	width: 90%;
+	margin-top: 40px;
 
 	.brick {
 		width: 350px;
@@ -131,7 +163,7 @@ header {
 		border-bottom-right-radius: 15px;
 		border-bottom-left-radius: 15px;
 
-		color: $background-brick-title;
+		color: $text-brick;
 		font-size: 1.3em;
 	}
 }

@@ -16,3 +16,10 @@
 	-moz-box-shadow:    0px 0px 24px 0px rgba(50, 50, 50, $opacity);
 	box-shadow:         0px 0px 24px 0px rgba(50, 50, 50, $opacity);
 }
+
+@mixin background-size {
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
