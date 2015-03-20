@@ -81,7 +81,7 @@ span.flickr-pink {
 		box-sizing: border-box;
 	}
 
-	input[type="text"] {
+	input#query {
 		@include transition;
 		@include border-radius(5px);
 
@@ -96,7 +96,7 @@ span.flickr-pink {
 		}
 	}
 
-	input[type="submit"] {
+	input#btn-submit {
 		display: none;
 	}
 }
