@@ -3,9 +3,8 @@ var wall;
 
 var api_key = 'd9edd8af4c7623dd292b6d5963dcd6d2';
 
-var url_base = "http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" + api_key;
+var url_base = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" + api_key;
 var url_params = "&format=json&nojsoncallback=1&per_page=10";
-
 
 var pages_total;
 var pages_current;
