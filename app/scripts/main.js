@@ -66,7 +66,7 @@ function loadWall(page) {
 			    '<div class="brick">' +
 
 			        '<div class="loading-gif">' +
-			            '<img src="../images/loader.gif">' +
+			            '<img src="..//images/loader.gif">' +
 			        '</div>' +
 
 			        '<div class="tiled-wrapper">' +
@@ -107,8 +107,6 @@ function getData(url, curr) {
 	$.getJSON(url + '&page=' + curr, function(result) {
 		var images = result.photos;
 		var page = new Array();
-
-		console.log(curr);
 
 		if (curr === 1)
 			pages_total = result.photos.pages;
