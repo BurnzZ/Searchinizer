@@ -79,7 +79,6 @@ span.flickr-pink {
 
 	form {
 		box-sizing: border-box;
-		margin-top: 6px;
 	}
 
 	input[type="text"] {
@@ -117,7 +116,6 @@ span.flickr-pink {
 		opacity: 0.5;
 		font-family: $font-pagination;
 		text-decoration: none;
-		font-size: 1.5em;
 		color: $text-header;
 
 		&:hover {
@@ -129,9 +127,14 @@ span.flickr-pink {
 #results {
 	min-height: 200px;
 	margin: 0 auto;
-	margin-top: 150px;
 	margin-bottom: 100px;
 	width: 90%;
+
+	#welcome-msg {
+		font-weight: bold;
+		text-align: center;
+		color: $text-welcome;
+	}
 
 	.brick {
 		width: 350px;

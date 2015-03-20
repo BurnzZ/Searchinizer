@@ -7,11 +7,27 @@ h1 {
 	form {
 		margin: 0 auto;
 		padding-left: 20px;
+		margin-top: 6px;
 	}
-	
+
 	input[type="text"] {
 		font-size: 1.5em;
 		width: 350px;
 		margin: 5px 1px 3px 0px;
+	}
+}
+
+#pagination {
+	a {
+		font-size: 1.5em;
+	}
+}
+
+#results {
+	margin-top: 150px !important;
+
+	#welcome-msg {
+		margin-top: 280px;
+		font-size: 4em;
 	}
 }
