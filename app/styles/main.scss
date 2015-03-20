@@ -19,8 +19,8 @@ IMPORTS & DEPENDENCIES
 @import "breakpoints/base";
 
 //LARGER MOBILE DEVICES
-@media only screen and (min-width: 481px) {
-	@import "breakpoints/481up";
+@media only screen and (max-width: 767px) {
+	@import "breakpoints/767down";
 }
 
 //TABLET & SMALLER LAPTOPS
@@ -42,39 +42,53 @@ body {
 	background: $background-body;
 	font-family: $font-gen;
 	color: $text-body;
-	font-size: 14px;
+	font-size: 16px;
 }
 
 h1 {
-	font-size: 4em; 
-	margin: 0;
+	margin: 0 auto;
 	color: $text-header;
+	box-sizing: border-box;
+	padding-right: 0 !important;
+}
+
+span.flickr-blue {
+	color: $flickr-blue;
+}
+
+span.flickr-pink {
+	color: $flickr-pink;
 }
 
 #main {
+	@include box-shadow(0, 3px, 6px, 0, rgba(0, 0, 0, 0.22));
+
 	text-align: center;
 	width: 100%;
-	background-color: $background-brick-title;
-	height: 100vh;
-	margin-bottom: 30px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: $background-main;
+	z-index: 1000;
 }
 
 #search {
-	width: 50%;
-	margin: 0 auto;
-	padding-bottom: 20px;
-	text-align: center;
+	width: 100%;
+	text-align: left;
+	overflow: hidden;
+
+	form {
+		box-sizing: border-box;
+		margin-top: 6px;
+	}
 
 	input[type="text"] {
 		@include transition;
 		@include border-radius(5px);
 
-		font-size: 2em;
-
-		width: 100%;
+		box-sizing: border-box;
 		outline: none;
 		padding: 10px 0px 10px 10px;
-		margin: 5px 1px 3px 0px;
 		border: 1px solid #DDDDDD;
 
 		&:focus {
@@ -92,6 +106,7 @@ h1 {
 
 	text-align: center;	
 	color: $text-header;
+	font-family: $font-pagination;
 
 	> div {
 		padding: 5px;
@@ -99,15 +114,23 @@ h1 {
 	}
 
 	a {
+		opacity: 0.5;
+		font-family: $font-pagination;
 		text-decoration: none;
 		font-size: 1.5em;
 		color: $text-header;
+
+		&:hover {
+			opacity: 1;
+		}
 	}
 }
 
 #results {
 	min-height: 200px;
 	margin: 0 auto;
+	margin-top: 150px;
+	margin-bottom: 100px;
 	width: 90%;
 
 	.brick {
@@ -117,7 +140,7 @@ h1 {
 
 		&:hover {
 			cursor: pointer;
-			@include box-shadow(.7);
+			@include box-shadow(0, 0, 24px, 0, rgba(50, 50, 50, 0.7));
 		}
 
 		> * {

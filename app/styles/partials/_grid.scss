@@ -19,6 +19,12 @@
     padding-right: 0;
   }
 
+  .m-9of10 {
+    @include grid-col;
+    width: 90%;
+    padding-right: 0;
+  }
+
   .m-1of2 {
     @include grid-col;
     width: 50%;

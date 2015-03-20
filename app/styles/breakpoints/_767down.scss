@@ -1,17 +1,18 @@
 h1 {
-	text-align: right;
+	text-align: center;
 	font-size: 4em; 
 }
 
 #search {
 	form {
-		margin: 0 auto;
-		padding-left: 20px;
+		margin: 10px 0;	
+		text-align: center;
 	}
-	
+
 	input[type="text"] {
 		font-size: 1.5em;
-		width: 350px;
+		width: 90%;
 		margin: 5px 1px 3px 0px;
+		margin-left: -10px;
 	}
 }
