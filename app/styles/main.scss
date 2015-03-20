@@ -52,6 +52,10 @@ h1 {
 	padding-right: 0 !important;
 }
 
+a {
+	text-decoration: none;
+}
+
 span.flickr-blue {
 	color: $flickr-blue;
 }
@@ -108,14 +112,13 @@ span.flickr-pink {
 	font-family: $font-pagination;
 
 	> div {
-		padding: 5px;
+		padding: 5px 20px;
 		display: none;
 	}
 
 	a {
 		opacity: 0.5;
 		font-family: $font-pagination;
-		text-decoration: none;
 		color: $text-header;
 
 		&:hover {
@@ -131,19 +134,33 @@ span.flickr-pink {
 	width: 90%;
 
 	#welcome-msg {
+		@include transition;
+
 		font-weight: bold;
 		text-align: center;
 		color: $text-welcome;
+
+		opacity: 0.5;
+
+		&:hover {
+			opacity: 1;
+		}
 	}
 
 	.brick {
+		@include transition;
+
 		width: 350px;
 		position: relative;
 		border-radius: 15px;
+		color: $text-brick;
+
 
 		&:hover {
 			cursor: pointer;
-			@include box-shadow(0, 0, 24px, 0, rgba(50, 50, 50, 0.7));
+			@include box-shadow(0, 0, 24px, 0, rgba(50, 50, 50, 0.5));
+
+			color: white;
 		}
 
 		> * {
@@ -172,16 +189,16 @@ span.flickr-pink {
 	}
 
 	.result-title {
+		@include transition;
+
 		position: relative;
 		border: 0;
 		padding: 10px;
 		text-align: center;
+		font-size: 1em;
 		background-color: rgba(0,0,0,1);
 
 		border-bottom-right-radius: 15px;
 		border-bottom-left-radius: 15px;
-
-		color: $text-brick;
-		font-size: 1.3em;
 	}
 }

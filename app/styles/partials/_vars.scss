@@ -6,9 +6,12 @@ $background-main: white;
 $background-brick-title: black;
 
 $text-body: black;
-$text-brick: white;
+$text-brick: rgba(255, 255, 255, 0.65);
 $text-header: black;
-$text-welcome: rgba(0, 0, 0, 0.35);
+$text-welcome: rgba(0, 0, 0, 0.7);
 
-$flickr-blue: #0063dc;
-$flickr-pink: #ff0084;
+$flickr-blue: rgba(0, 99, 220, 1);
+$flickr-pink: rgba(255, 0, 132, 1);
+
+$flickr-blue-light: rgba(0, 99, 220, 0.5);
+$flickr-pink-light: rgba(255, 0, 132, 0.5);
